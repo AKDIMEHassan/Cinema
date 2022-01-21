@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import lombok.Data;
 @RestController
+@CrossOrigin("*")
 public class CinemaRestController {
 	@Autowired
 	private FilmRepository filmRepository;
@@ -35,7 +36,6 @@ public class CinemaRestController {
      }
 	@PostMapping("/payerTickets")
 	@Transactional
-	@CrossOrigin("*")
 	public List<Ticket> payerTickets(@RequestBody TicketForm ticketForm){
 		List<Ticket> listTickets=new ArrayList<>();
 		ticketForm.getTickets().forEach(idTicket->{
